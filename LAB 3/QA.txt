@@ -1,0 +1,54 @@
+4a) 
+Algorithm Performance
+
+Which dataset achieved the highest accuracy and why?
+The Mushroom dataset achieved a perfect 100% accuracy.
+This is because its features are perfectly predictive, allowing the algorithm to find simple, flawless rules.
+The resulting tree was the simplest (Depth 4, 59 nodes), proving the rules were easy to learn.
+
+
+How does dataset size affect performance?
+Nursery (Largest): Achieved high accuracy (98.67%) but created a very complex tree (992 nodes), suggesting potential overfitting.
+Mushroom (Medium): The size was sufficient to learn the perfect rules for 100% accuracy without creating a complex tree.
+Tic-Tac-Toe (Smallest): Had the lowest accuracy (89.36%), likely because the small training set wasn't comprehensive enough to learn all win/loss conditions.
+
+
+What role does the number of features play?
+Mushroom (Most features, 22): More features provided more options for splits, contributing to its perfect and efficient result.
+Nursery & Tic-Tac-Toe (Few features, 8-9): Fewer choices meant the models relied heavily on the available features. The Nursery dataset's features were very powerful, while the Tic-Tac-Toe dataset required a much deeper tree to make sense of its features.
+
+
+4b) 
+Data Characteristics Impact
+
+How does class imbalance affect tree construction?
+Class imbalance significantly impacted the Nursery dataset.
+This is proven by the large gap between its weighted F1-Score (0.9872) and its macro F1-Score (0.7628).
+The tree is excellent at identifying common classes but performs poorly on rare ones.
+
+
+Which types of features (binary vs multi-valued) work better?
+All three datasets use multi-valued features.
+The Information Gain metric used by the algorithm is known to be biased towards features with many values, which can create overly complex trees.
+Binary features do not have this bias and can lead to simpler models.
+
+
+4c) 
+Practical Applications
+
+For which real-world scenarios is each dataset type most relevant?
+Mushroom: Critical diagnostic systems (e.g., medical diagnosis, spam filtering).
+Tic-Tac-Toe: Rule-based validation systems (e.g., game AI, compliance software).
+Nursery: Profile evaluation systems (e.g., loan approvals, university admissions).
+
+
+What are the interpretability advantages for each domain?
+Mushroom: The simple tree is extremely easy to understand and verify, building trust.
+Nursery: The tree provides transparency, allowing one to trace the exact reason for any decision, which is crucial for fairness.
+Tic-Tac-Toe: The logic can be followed to understand the model's "strategy," which is useful for debugging.
+
+
+How would you improve performance for each dataset?
+Tic-Tac-Toe: Improve its 89.36% accuracy by using cross-validation to get a more reliable performance measurement.
+Nursery: Address its complexity (992 nodes) and likely overfitting by implementing pruning (e.g., setting a max depth). Also, use resampling to fix the class imbalance.
+Mushroom: Since accuracy is perfect, the goal is efficiency. Use pruning to see if a simpler tree can still achieve 100%.
